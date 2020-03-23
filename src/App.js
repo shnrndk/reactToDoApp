@@ -21,13 +21,21 @@ export class App extends Component {
 
   deleteItem = (id)=>{
     console.log(id)
+    let toDos = this.state.toDos.filter((toDo)=>{
+      return toDo.id!==id
+    })
+
+    this.setState({
+      toDos:toDos
+    })
   }
 
   render() {
     return (
       <div className="container">
-        <AddTodo addToDo={this.addToDo} deleteItem={this.deleteItem} />
-        <ToDoView toDos={this.state.toDos}/>
+        <h2 className="center-align teal-text text-lighten-1">To Do App</h2>
+        <AddTodo addToDo={this.addToDo}/>
+        <ToDoView toDos={this.state.toDos} deleteItem={this.deleteItem} />
       </div>
     )
   }
