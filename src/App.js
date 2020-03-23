@@ -10,7 +10,7 @@ export class App extends Component {
   }
 
   addToDo = (toDo) =>{
-    if(this.state.toDos.length==0) toDo.id = 0
+    if(this.state.toDos.length===0) toDo.id = 0
     else toDo.id = this.state.toDos.length+1;
     
     let toDos = [...this.state.toDos,toDo];
